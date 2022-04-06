@@ -1,0 +1,33 @@
+package com.example.classes;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class ReaderClass {
+    /**
+     * A string array is initialized with length 7, the length will be 7 as our csv input file has
+     * 7 different values separated by commas. While there is no empty line we will scan the whole line
+     * as a string and then split it by ','.
+     * Finally, we will return the data.
+     * @param myData
+     * @return
+     * @throws FileNotFoundException
+     */
+
+
+    public static String[] loadData(File myData) throws FileNotFoundException {
+
+        String [] data = new String[7];
+        Scanner scanner = new Scanner(myData);
+        while (scanner.hasNextLine()) {
+            String lines = scanner.nextLine();
+            data = lines.split(",");
+
+        }
+        return data;
+
+    }
+
+}
