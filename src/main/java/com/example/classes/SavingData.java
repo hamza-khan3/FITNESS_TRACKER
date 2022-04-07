@@ -1,5 +1,7 @@
 package com.example.classes;
 
+import com.example.cpscm.HelloController;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -15,10 +17,10 @@ public class SavingData {
 
         try {
             FileWriter myWriter = new FileWriter(output, true);
-            Double calories = Exercise.caloriesBurned(Main.user);
-            Double BMI = Exercise.BMICalculator(Main.user);
-            Double distanceCovered = Exercise.distance_Covered(Main.user);
-            myWriter.write("Name:"+Main.user.getName()+","+" Calories burned: "+calories+","+" BMI: "+BMI+","+" Distance covered in Kilometers: "+distanceCovered+"\n");
+            Double calories = Exercise.caloriesBurned(HelloController.user);
+            Double BMI = Exercise.BMICalculator(HelloController.user);
+            Double distanceCovered = Exercise.distance_Covered(HelloController.user);
+            myWriter.write("Name:"+HelloController.user.getName()+","+" Calories burned: "+calories+","+" BMI: "+BMI+","+" Distance covered in Kilometers: "+distanceCovered+"\n");
             myWriter.flush();
             myWriter.close();
             System.out.println("Data saved successfully!");

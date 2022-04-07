@@ -25,7 +25,7 @@ public class Sorting implements Comparable<Sorting> {
      * @return entries
      */
 
-    public ArrayList BR(String[] args){
+    public ArrayList BR(File args){
         ArrayList<Sorting> entries = new ArrayList<>();
             File file = new File("output.txt");
             if (file.isFile() && file.canRead() && file.canWrite() && file.exists()){

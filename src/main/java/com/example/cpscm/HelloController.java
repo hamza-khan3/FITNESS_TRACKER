@@ -22,6 +22,7 @@ import java.util.HashMap;
 import java.util.ResourceBundle;
 
 public class HelloController {
+
     @FXML
     private TextField age;
 
@@ -61,14 +62,14 @@ public class HelloController {
     @FXML
     private TextArea pastusers;
 
-    private String name_value;
-    private int age_value;
-    private double weight_value;
-    private double pace_value;
-    private double height_value;
-    private int cardio_value;
-    private double duration_value;
-    User user = new User(name_value, age_value, weight_value, pace_value, height_value, cardio_value, duration_value);
+    private static String name_value;
+    private static int age_value;
+    private static double weight_value;
+    private static double pace_value;
+    private static double height_value;
+    private static int cardio_value;
+    private static double duration_value;
+    public static User user = new User(name_value, age_value, weight_value, pace_value, height_value, cardio_value, duration_value);
 
     @FXML
     private TextArea view;
@@ -197,11 +198,13 @@ public class HelloController {
                 throw new Exception();
             }
 
+            Sorting comparing = new Sorting(user.getName(), Exercise.caloriesBurned(user), Exercise.BMICalculator(user), Exercise.distance_Covered(user));
+            comparing.BR(saved_users_file);
+            String past_users = "";
             FileReader fr = new FileReader(saved_users_file);
             BufferedReader br = new BufferedReader(fr);
             String line = br.readLine();
             if (String.valueOf(line.charAt(0)).equals("N")) {
-                String past_users = "";
                 while (line != null) {
                     past_users = past_users + line + "\n";
                     line = br.readLine();
@@ -211,6 +214,7 @@ public class HelloController {
             } else {
                 throw new Exception();
             }
+
 
         } catch (Exception e) {
             alert.setAlertType(Alert.AlertType.ERROR);
@@ -233,14 +237,13 @@ public class HelloController {
             File file = file_chooser.showSaveDialog(new Stage());
             if (file != null) {
                 //Need to fix sorting
-                writeToFile(file);
-                Sorting comparing = new Sorting(user.getName(), Exercise.caloriesBurned(user), Exercise.BMICalculator(user), Exercise.distance_Covered(user));
-                String[] args = new String[1];
-                args[0] = String.valueOf(file);
-                comparing.BR(args);
+                SavingData.saveData(file);
             }else {
                 throw new Exception();
             }
+
+            Sorting comparing = new Sorting(user.getName(), Exercise.caloriesBurned(user), Exercise.BMICalculator(user), Exercise.distance_Covered(user));
+            comparing.BR(file);
         } catch (Exception e) {
             alert.setAlertType(Alert.AlertType.ERROR);
             alert.setContentText("An error occurred.");
@@ -249,22 +252,8 @@ public class HelloController {
 
     }
 
-    public void writeToFile(File file){
-        try {
-            FileWriter myWriter = new FileWriter(file, true);
-            Double calories = Exercise.caloriesBurned(user);
-            Double BMI = Exercise.BMICalculator(user);
-            Double distanceCovered = Exercise.distance_Covered(user);
-            myWriter.write("Name:"+user.getName()+","+" Calories burned: "+calories+","+" BMI: "+BMI+","+" Distance covered in Kilometers: "+distanceCovered+"\n");
-            myWriter.flush();
-            myWriter.close();
-            alert.setAlertType(Alert.AlertType.INFORMATION);
-            alert.setContentText("Data saved successfully!");
-            alert.show();
-        } catch (IOException e) {
-            alert.setAlertType(Alert.AlertType.ERROR);
-            alert.setContentText("An error occurred.");
-            alert.show();
-        }
+    @FXML
+    void closeAction(ActionEvent event) {
+        System.exit(0);
     }
 }

@@ -55,12 +55,7 @@
                   <MenuItem mnemonicParsing="false" onAction="#loadPerson" text="Load a person..." />
                   <MenuItem mnemonicParsing="false" onAction="#loadSavedUsers" text="View saved users" />
                   <MenuItem mnemonicParsing="false" onAction="#saveAction" text="Save user info..." />
-                        <MenuItem mnemonicParsing="false" text="Close" />
-                    </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Edit">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="Delete person" />
+                        <MenuItem mnemonicParsing="false" onAction="#closeAction" text="Close" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help">
@@ -126,13 +121,13 @@
                 </AnchorPane>
                 <AnchorPane prefHeight="626.0" prefWidth="362.0">
                     <children>
-                        <TextArea fx:id="view" editable="false" layoutX="6.0" layoutY="91.0" prefHeight="272.0" prefWidth="316.0" />
+                        <TextArea fx:id="view" editable="false" layoutX="13.0" layoutY="91.0" prefHeight="315.0" prefWidth="297.0" />
                         <Text layoutX="112.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="View:" underline="true">
                             <font>
                                 <Font size="32.0" />
                             </font>
                         </Text>
-                  <Button layoutX="83.0" layoutY="363.0" mnemonicParsing="false" onAction="#editPerson" prefHeight="49.0" prefWidth="167.0" text="EDIT DATA" />
+                  <Button layoutX="83.0" layoutY="407.0" mnemonicParsing="false" onAction="#editPerson" prefHeight="49.0" prefWidth="167.0" text="EDIT DATA" />
                     </children>
                 </AnchorPane>
                 <AnchorPane prefHeight="626.0" prefWidth="560.0">
