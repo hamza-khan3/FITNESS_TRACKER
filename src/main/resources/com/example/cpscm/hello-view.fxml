@@ -32,152 +32,139 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
-
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="497.0" prefWidth="1288.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cpscm.HelloController">
     <children>
-        <MenuBar VBox.vgrow="NEVER">
+        <MenuBar>
             <menus>
                 <Menu mnemonicParsing="false" text="File">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="New" />
-                        <MenuItem mnemonicParsing="false" text="Open…" />
-                        <Menu mnemonicParsing="false" text="Open Recent" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
                         <MenuItem mnemonicParsing="false" text="Close" />
-                        <MenuItem mnemonicParsing="false" text="Save" />
-                        <MenuItem mnemonicParsing="false" text="Save As…" />
-                        <MenuItem mnemonicParsing="false" text="Revert" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Preferences…" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Quit" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Edit">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="Undo" />
-                        <MenuItem mnemonicParsing="false" text="Redo" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Cut" />
-                        <MenuItem mnemonicParsing="false" text="Copy" />
-                        <MenuItem mnemonicParsing="false" text="Paste" />
                         <MenuItem mnemonicParsing="false" text="Delete" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Select All" />
-                        <MenuItem mnemonicParsing="false" text="Unselect All" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+                        <MenuItem mnemonicParsing="false" text="About" />
                     </items>
                 </Menu>
             </menus>
         </MenuBar>
-        <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+        <HBox prefHeight="818.0" prefWidth="1288.0">
             <children>
-                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="375.0" layoutX="426.0" stroke="BLACK" strokeType="INSIDE" width="215.0" />
-                <Label layoutX="472.0" layoutY="29.0" prefHeight="39.0" prefWidth="121.0" text="FITNESS" textFill="WHITE">
-                    <font>
-                        <Font name="hooge 05_53" size="24.0" />
-                    </font>
-                </Label>
-                <Label layoutX="502.0" layoutY="100.0" prefHeight="39.0" prefWidth="62.0" text="V3.0" textFill="#f6f5f5">
-                    <font>
-                        <Font name="hooge 05_53" size="21.0" />
-                    </font>
-                </Label>
-                <Label layoutX="472.0" layoutY="56.0" prefHeight="54.0" prefWidth="129.0" text="TRACKER" textFill="WHITE">
-                    <font>
-                        <Font name="hooge 05_53" size="21.0" />
-                    </font>
-                </Label>
-                <RadioButton layoutX="444.0" layoutY="179.0" mnemonicParsing="false" text="DISPLAY BMI" textFill="WHITE">
-                    <toggleGroup>
-                        <ToggleGroup fx:id="outputSpecial" />
-                    </toggleGroup>
-                </RadioButton>
-                <RadioButton layoutX="445.0" layoutY="209.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="148.0" text="DISTANCE" textFill="WHITE" toggleGroup="$outputSpecial" />
-                <RadioButton layoutX="443.0" layoutY="230.0" mnemonicParsing="false" text="CALORIES BURNED" textFill="WHITE" toggleGroup="$outputSpecial" />
-                <RadioButton layoutX="443.0" layoutY="256.0" mnemonicParsing="false" text="DISTANCE TO BURN 200" textFill="WHITE" toggleGroup="$outputSpecial" />
-                <Label layoutX="445.0" layoutY="150.0" text="OUTPUT SPECIAL:">
-                    <font>
-                        <Font name="Verdana Pro Cond Black" size="18.0" />
-                    </font>
-                </Label>
-                <RadioButton layoutX="443.0" layoutY="283.0" mnemonicParsing="false" text="ALL" textFill="WHITE" toggleGroup="$outputSpecial" />
-                <Button layoutX="445.0" layoutY="335.0" mnemonicParsing="false" text="DISPLAY INFORMATION!" />
-                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff8a21" height="375.0" layoutX="221.0" stroke="BLACK" strokeType="INSIDE" width="208.0" />
-                <Label layoutX="228.0" layoutY="14.0" prefHeight="54.0" prefWidth="109.0" text="VIEW:">
-                    <font>
-                        <Font name="Rockwell Condensed" size="34.0" />
-                    </font>
-                </Label>
-                <TextArea layoutX="225.0" layoutY="78.0" prefHeight="245.0" prefWidth="200.0" />
-                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1fa7ff" height="375.0" layoutX="-1.0" stroke="BLACK" strokeType="INSIDE" width="223.0" />
-                <Label layoutX="73.0" layoutY="68.0" text="USER" textFill="WHITE">
-                    <font>
-                        <Font name="hooge 05_53" size="25.0" />
-                    </font>
-                </Label>
-                <Label layoutX="26.0" layoutY="97.0" text="INFORMATION:">
-                    <font>
-                        <Font name="hooge 05_53" size="22.0" />
-                    </font>
-                </Label>
-                <TextField layoutX="92.0" layoutY="137.0" prefHeight="25.0" prefWidth="121.0" />
-                <TextField layoutX="92.0" layoutY="175.0" prefHeight="25.0" prefWidth="121.0" />
-                <TextField layoutX="92.0" layoutY="214.0" prefHeight="25.0" prefWidth="121.0" />
-                <TextField layoutX="92.0" layoutY="259.0" prefHeight="25.0" prefWidth="121.0" />
-                <TextField layoutX="89.0" layoutY="301.0" prefHeight="25.0" prefWidth="121.0" />
-                <TextField layoutX="90.0" layoutY="338.0" prefHeight="25.0" prefWidth="121.0" />
-                <Label layoutX="7.0" layoutY="138.0" text="NAME:" textFill="WHITE">
-                    <font>
-                        <Font name="hooge 05_53" size="20.0" />
-                    </font>
-                </Label>
-                <Label layoutX="10.0" layoutY="178.0" text="AGE:">
-                    <font>
-                        <Font name="hooge 05_53" size="19.0" />
-                    </font>
-                </Label>
-                <Label layoutX="8.0" layoutY="221.0" text="WEIGHT:">
-                    <font>
-                        <Font name="hooge 05_53" size="15.0" />
-                    </font>
-                </Label>
-                <Label layoutX="9.0" layoutY="263.0" text="HEIGHT:">
-                    <font>
-                        <Font name="hooge 05_53" size="16.0" />
-                    </font>
-                </Label>
-                <Label layoutX="11.0" layoutY="302.0" text="PACE:">
-                    <font>
-                        <Font name="hooge 05_53" size="19.0" />
-                    </font>
-                </Label>
-                <Label layoutX="8.0" layoutY="342.0" text="DURATION:">
-                    <font>
-                        <Font name="hooge 05_53" size="12.0" />
-                    </font>
-                </Label>
+                <AnchorPane prefHeight="595.0" prefWidth="456.0">
+                    <children>
+                        <Text layoutX="82.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Information:" underline="true">
+                            <font>
+                                <Font size="32.0" />
+                            </font>
+                        </Text>
+                        <Text layoutX="14.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:">
+                            <font>
+                                <Font size="25.0" />
+                            </font>
+                        </Text>
+                        <Text layoutX="14.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Age:">
+                            <font>
+                                <Font size="25.0" />
+                            </font>
+                        </Text>
+                        <Text layoutX="14.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Weight:">
+                            <font>
+                                <Font size="25.0" />
+                            </font>
+                        </Text>
+                        <Text layoutX="14.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pace:">
+                            <font>
+                                <Font size="25.0" />
+                            </font>
+                        </Text>
+                        <Text layoutX="14.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Height:">
+                            <font>
+                                <Font size="25.0" />
+                            </font>
+                        </Text>
+                        <Text layoutX="14.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cardio:">
+                            <font>
+                                <Font size="25.0" />
+                            </font>
+                        </Text>
+                        <Text layoutX="14.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Duration:">
+                            <font>
+                                <Font size="25.0" />
+                            </font>
+                        </Text>
+                        <TextField fx:id="name" layoutX="154.0" layoutY="57.0" promptText="enter name" />
+                        <TextField fx:id="age" layoutX="154.0" layoutY="86.0" promptText="enter age" />
+                        <TextField fx:id="weight" layoutX="154.0" layoutY="115.0" promptText="enter weight" />
+                        <TextField fx:id="pace" layoutX="154.0" layoutY="144.0" promptText="enter pace" />
+                        <TextField fx:id="height" layoutX="154.0" layoutY="173.0" promptText="enter height" />
+                        <TextField fx:id="cardio" layoutX="154.0" layoutY="202.0" promptText="enter cardio" />
+                        <TextField fx:id="duration" layoutX="154.0" layoutY="231.0" promptText="enter duration" />
+                        <Button layoutX="22.0" layoutY="397.0" mnemonicParsing="false" onAction="#savePerson" prefHeight="49.0" prefWidth="167.0" text="ADD PERSON" />
+                        <Button layoutX="238.0" layoutY="397.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="167.0" text="VIEW DATA" />
+                    </children>
+                </AnchorPane>
+                <AnchorPane prefHeight="626.0" prefWidth="362.0">
+                    <children>
+                        <TextArea layoutX="23.0" layoutY="91.0" prefHeight="272.0" prefWidth="280.0" />
+                        <Text layoutX="112.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="View:" underline="true">
+                            <font>
+                                <Font size="32.0" />
+                            </font>
+                        </Text>
+                    </children>
+                </AnchorPane>
+                <AnchorPane prefHeight="626.0" prefWidth="560.0">
+                    <children>
+                        <Text layoutX="143.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Exercise Information:" underline="true">
+                            <font>
+                                <Font size="27.0" />
+                            </font>
+                        </Text>
+                        <RadioButton layoutX="14.0" layoutY="82.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="352.0" text="Calories Burned">
+                            <font>
+                                <Font size="21.0" />
+                            </font>
+                            <toggleGroup>
+                                <ToggleGroup fx:id="ex" />
+                            </toggleGroup>
+                        </RadioButton>
+                        <RadioButton layoutX="14.0" layoutY="173.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="352.0" text="Distance Covered" toggleGroup="$ex">
+                            <font>
+                                <Font size="21.0" />
+                            </font>
+                        </RadioButton>
+                        <RadioButton layoutX="14.0" layoutY="279.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="352.0" text="BMI" toggleGroup="$ex">
+                            <font>
+                                <Font size="21.0" />
+                            </font>
+                        </RadioButton>
+                        <RadioButton layoutX="16.0" layoutY="388.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="474.0" text="Recommended Time to burn 200 Calories" toggleGroup="$ex">
+                            <font>
+                                <Font size="21.0" />
+                            </font>
+                        </RadioButton>
+                    </children>
+                </AnchorPane>
             </children>
-        </AnchorPane>
+        </HBox>
     </children>
 </VBox>
