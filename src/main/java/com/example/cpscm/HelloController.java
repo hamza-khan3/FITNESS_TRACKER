@@ -87,7 +87,7 @@ public class HelloController {
 
             personsAttributes = Organizer.organizeData(user);
             view.setText("Current User: " + "\n" + "Name: " + personsAttributes.get("Name") + "\n" + "Age in Years: " + personsAttributes.get("Age") + "\n" + "Weight in Kilograms: " + personsAttributes.get("Weight") +
-                    "\n" + "Steady State Pace:" + personsAttributes.get("Pace") + "\n" + "Height in Meters" + personsAttributes.get("Height") + "\n" + "Cardio Selection: " + personsAttributes.get("Cardio") + "\n" + "Duration of Exercise: " + personsAttributes.get("Duration"));
+                    "\n" + "Steady State Pace: " + personsAttributes.get("Pace") + "\n" + "Height in Meters: " + personsAttributes.get("Height") + "\n" + "Cardio Selection: " + personsAttributes.get("Cardio") + "\n" + "Duration of Exercise in minutes: " + personsAttributes.get("Duration"));
 
         } catch (Exception e) {
             alert.setAlertType(Alert.AlertType.ERROR);
@@ -101,27 +101,38 @@ public class HelloController {
             String personsAttributes = String.valueOf(Organizer.organizeData(user));
             if (bmitoggle.isSelected()) {
                 String bmivalue = String.valueOf(Exercise.BMICalculator(user));
-                view.setText(personsAttributes + "\n" + "BMI: " + bmivalue);
+                view.setText("User Name: " + this.personsAttributes.get("Name") + "\n" + "BMI: " + bmivalue);
             } else if (caloriestoggle.isSelected()) {
                 String caloriesvalue = String.valueOf(Exercise.caloriesBurned(user));
-                view.setText(personsAttributes + "\n" + "Calories burned: " + caloriesvalue);
+                view.setText("User Name: " + this.personsAttributes.get("Name") + "\n" + "Calories burned: " + caloriesvalue);
             } else if (timetoggle.isSelected()) {
                 String timevalue = String.valueOf(Exercise.twohundredcalories(user));
-                view.setText(personsAttributes + "\n" + "Time to burn 200 calories: " + timevalue + "minutes");
+                view.setText("User Name: " + this.personsAttributes.get("Name") + "\n" + "Time to burn 200 calories: " + timevalue + "minutes");
             } else if (distancetoggle.isSelected()) {
                 String distancevalue = String.valueOf(Exercise.distance_Covered(user));
-                view.setText(personsAttributes + "\n" + "Distance covered: " + distancevalue + "km");
+                view.setText("User Name: " + this.personsAttributes.get("Name") + "\n" + "Distance covered: " + distancevalue + "km");
             } else if (alltoggle.isSelected()) {
                 String caloriesvalue = String.valueOf(Exercise.caloriesBurned(user));
                 String timevalue = String.valueOf(Exercise.twohundredcalories(user));
                 String distancevalue = String.valueOf(Exercise.distance_Covered(user));
                 String bmivalue = String.valueOf(Exercise.BMICalculator(user));
-                view.setText(personsAttributes + "\n" + "Calories burned: " + caloriesvalue + "\n" + "Distance to burn 200 calories: " + timevalue + "minutes" + "\n" + "Distance covered: " + distancevalue + "km" + "\n" + "BMI: " + bmivalue);
+                view.setText("User Name: " + this.personsAttributes.get("Name") + "\n" + "Calories burned: " + caloriesvalue + "\n" + "Distance to burn 200 calories: " + timevalue + " minutes" + "\n" + "Distance covered: " + distancevalue + "km" + "\n" + "BMI: " + bmivalue);
             }
         } catch (Exception e) {
             alert.setAlertType(Alert.AlertType.ERROR);
             alert.setContentText("You have entered invalid information!");
             alert.show();
         }
+    }
+
+    @FXML
+    void aboutAction(ActionEvent event) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setHeaderText("About the Program");
+        alert.setContentText("Names: Ravale Khan and Hamza Khan\nEmails: ravale.khan@ucalgary.ca and hamza.khan3@ucalgary.ca\n" +
+                "This program is a fitness tracker very similar to the ones found in treadmills at gyms. This program will track a persons " +
+                "basic information while they are exercising, such as how much distance the person covered during their workout, how many calories they burned, " +
+                "what their BMI is, and it even gives a recommendation to the user for how much time they would have to do their workout to burn 200 calories. ");
+        alert.show();
     }
 }
