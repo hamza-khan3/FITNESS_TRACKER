@@ -75,23 +75,23 @@ public class Main {
             }
             //Shows calories burned while doing cardio
             if (selectOption2 == 1) {
-                double calories = workout.caloriesBurned(pace, duration, weight);
+                double calories = workout.caloriesBurned(user);
                 System.out.println(name + ", you burned " + calories + " calories doing cardio for " + duration + " minutes.");
             }
             //Shows distance covered during cardio
             if (selectOption2 == 2) {
-                double distanceCovered = workout.distance_Covered(duration, pace);
+                double distanceCovered = workout.distance_Covered(user);
                 System.out.println(name + ", you have covered " + distanceCovered + " km in " + duration + " minutes.");
             }
             //Shows BMI
             if (selectOption2 == 3) {
-                double bmi = workout.BMICalculator(weight, height);
+                double bmi = workout.BMICalculator(user);
                 System.out.println(name + ", your BMI is: " + bmi);
             }
             //Shows what time you have to do cardio at a certain pace to burn how many calories.
             if (selectOption2 == 4) {
                 double pace_to_burn = pace;
-                double time_to_burn = workout.twohundredcalories(pace_to_burn, weight);
+                double time_to_burn = workout.twohundredcalories(user);
                 System.out.println(name + ", at a pace of " + pace_to_burn + "km/h you would have to do your cardio for " + time_to_burn + " minutes to burn 200 calories. ");
             }
             //Quit option
@@ -218,7 +218,7 @@ public class Main {
             System.out.println("Select which data entry you would like to view:");
             System.out.println("1. Name\n2. Age\n3. Weight\n4. Pace\n5. Height\n6. Duration\n7. Done viewing data");
             int view = scanner.nextInt();
-            HashMap<String, String> data = organize.organizeData(name, age, weight, pace, height, cardio, duration);
+            HashMap<String, String> data = organize.organizeData(user);
             if (view == 1) {
                 System.out.println("Name stored: " + data.get("Name"));
             }
@@ -348,7 +348,7 @@ public class Main {
             System.out.println("Do you want to view the edited data? Enter 'yes' if you do and 'no' if you do not: ");
             String view_edited_data = scanner.next();
             if (view_edited_data.equals("yes")) {
-                System.out.println(organize.organizeData(user.Name(name), user.Age(age), user.Weight(weight), user.Pace(pace), user.Height(height), user.Cardio(cardio), user.Duration(duration)));
+                System.out.println(organize.organizeData(user));
             }
         }
 
@@ -451,7 +451,7 @@ public class Main {
             }
         }
 
-        Sorting comparing = new Sorting(user.getName(), workout.caloriesBurned(user.getPace(), workout.BMICalculator(user.getHeight(), user.getWeight()), user.getDuration()), user.getWeight(), workout.distance_Covered(user.getDuration(), user.getPace()));
+        Sorting comparing = new Sorting(user.getName(), workout.caloriesBurned(user), workout.BMICalculator(user), workout.distance_Covered(user));
         comparing.BR(args);
 
         ShowingData();

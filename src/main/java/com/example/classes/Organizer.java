@@ -13,32 +13,26 @@ public class Organizer extends User{
      * Storing the values that the user gives us into a hashmap, so that
      * if the user wants to view these values, it can be displayed in an
      * organized manner.
-     * @param name
-     * @param age
-     * @param weight
-     * @param pace
-     * @param height
-     * @param cardio
-     * @param duration
+     * @param user
      * @return data
      */
 
-    public static HashMap<String, String> organizeData(String name, int age, double weight, double pace, double height, double cardio, double duration){
+    public static HashMap<String, String> organizeData(User user){
         HashMap<String, String> data = new HashMap<String, String>();
-        data.put("Name", name);
-        data.put("Age", Integer.toString(age));
-        data.put("Weight", Double.toString(weight));
-        data.put("Pace", Double.toString(pace));
-        data.put("Height", Double.toString(height));
+        data.put("Name", user.getName());
+        data.put("Age", Integer.toString(user.getAge()));
+        data.put("Weight", Double.toString(user.getWeight()));
+        data.put("Pace", Double.toString(user.getPace()));
+        data.put("Height", Double.toString(user.getHeight()));
         //Checking if the user chose jogging/running or walking
         final int running_or_jogging = 1;
         final int walking = 2;
-        if (cardio == running_or_jogging){
+        if (user.getCardio() == running_or_jogging){
             data.put("Cardio", "Running/Jogging");
-        }else if (cardio == walking){
+        }else if (user.getCardio() == walking){
             data.put("Cardio", "Walking");
         }
-        data.put("Duration", Double.toString(duration));
+        data.put("Duration", Double.toString(user.getDuration()));
         return data;
     }
 }

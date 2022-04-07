@@ -15,9 +15,9 @@ public class SavingData {
 
         try {
             FileWriter myWriter = new FileWriter(output, true);
-            Double calories = Exercise.caloriesBurned(Main.user.getPace(),Main.user.getDuration(),Main.user.getWeight());
-            Double BMI = Exercise.BMICalculator(Main.user.getWeight(),Main.user.getHeight());
-            Double distanceCovered = Exercise.distance_Covered(Main.user.getDuration(),Main.user.getPace());
+            Double calories = Exercise.caloriesBurned(Main.user);
+            Double BMI = Exercise.BMICalculator(Main.user);
+            Double distanceCovered = Exercise.distance_Covered(Main.user);
             myWriter.write("Name:"+Main.user.getName()+","+" Calories burned: "+calories+","+" BMI: "+BMI+","+" Distance covered in Kilometers: "+distanceCovered+"\n");
             myWriter.flush();
             myWriter.close();

@@ -3,17 +3,26 @@ package com.example.cpscm;
 import com.example.classes.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 
 public class HelloController {
     @FXML
     private TextField age;
 
     @FXML
+    private RadioButton alltoggle;
+
+    @FXML
+    private RadioButton bmitoggle;
+
+    @FXML
+    private RadioButton caloriestoggle;
+
+    @FXML
     private TextField cardio;
+
+    @FXML
+    private RadioButton distancetoggle;
 
     @FXML
     private TextField duration;
@@ -31,9 +40,27 @@ public class HelloController {
     private TextField pace;
 
     @FXML
+    private RadioButton timetoggle;
+
+    private String name_value;
+    private int age_value;
+    private double weight_value;
+    private double pace_value;
+    private double height_value;
+    private int cardio_value;
+    private double duration_value;
+    User user = new User(name_value, age_value, weight_value, pace_value, height_value, cardio_value, duration_value);
+
+    @FXML
+    private TextArea view;
+
+    @FXML
     private TextField weight;
 
     Alert alert = new Alert(Alert.AlertType.NONE);
+
+    public HelloController() {
+    }
 
     @FXML
     void savePerson(ActionEvent event) {
@@ -45,13 +72,48 @@ public class HelloController {
             double height_value = Double.parseDouble(height.getText());
             int cardio_value = Integer.parseInt(cardio.getText());
             double duration_value = Double.parseDouble(duration.getText());
+            user.Name(name_value);
+            user.Age(age_value);
+            user.Weight(weight_value);
+            user.Pace(pace_value);
+            user.Height(height_value);
+            user.Cardio(cardio_value);
+            user.Duration(duration_value);
 
-            User user = new User(name_value, age_value, weight_value, pace_value, height_value, cardio_value, duration_value);
+
+            String personsAttributes = String.valueOf(Organizer.organizeData(user));
+            view.setText("Current person: "+personsAttributes);
+
 
         } catch (Exception e) {
             alert.setAlertType(Alert.AlertType.ERROR);
-            alert.setContentText("Enter correct values for the user information!");
+            alert.setContentText("You have entered invalid or incomplete information!");
             alert.show();
+        }
+    }
+    public void displayData(){
+        String personsAttributes = String.valueOf(Organizer.organizeData(user));
+        if (bmitoggle.isSelected()){
+        String bmivalue = String.valueOf(Exercise.BMICalculator(user));
+        view.setText(personsAttributes+"\n"+"BMI: "+bmivalue);}
+        else if (caloriestoggle.isSelected()){
+            String caloriesvalue =  String.valueOf(Exercise.caloriesBurned(user));
+            view.setText(personsAttributes+"\n"+"Calories burned: "+caloriesvalue);
+        }
+        else if (timetoggle.isSelected()){
+            String timevalue =  String.valueOf(Exercise.twohundredcalories(user));
+            view.setText(personsAttributes+"\n"+"Time to burn 200 calories: "+timevalue+"minutes");
+        }
+        else if (distancetoggle.isSelected()){
+            String distancevalue =  String.valueOf(Exercise.distance_Covered(user));
+            view.setText(personsAttributes+"\n"+"Distance covered: "+distancevalue+"km");
+        }
+        else if (alltoggle.isSelected()){
+            String caloriesvalue =  String.valueOf(Exercise.caloriesBurned(user));
+            String timevalue =  String.valueOf(Exercise.twohundredcalories(user));
+            String distancevalue =  String.valueOf(Exercise.distance_Covered(user));
+            String bmivalue = String.valueOf(Exercise.BMICalculator(user));
+            view.setText(personsAttributes+"\n"+"Calories burned: "+caloriesvalue+"\n"+"Distance to burn 200 calories: "+timevalue+"minutes"+"\n"+"Distance covered: "+distancevalue+"km"+"\n"+"BMI: "+bmivalue);
         }
     }
 }

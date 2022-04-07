@@ -52,17 +52,19 @@
             <menus>
                 <Menu mnemonicParsing="false" text="File">
                     <items>
+                  <MenuItem mnemonicParsing="false" text="Save exercise info" />
+                  <MenuItem mnemonicParsing="false" text="Save user info" />
                         <MenuItem mnemonicParsing="false" text="Close" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Edit">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="Delete" />
+                        <MenuItem mnemonicParsing="false" text="Delete person" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="About" />
+                        <MenuItem mnemonicParsing="false" text="About the program" />
                     </items>
                 </Menu>
             </menus>
@@ -119,12 +121,11 @@
                         <TextField fx:id="cardio" layoutX="154.0" layoutY="202.0" promptText="enter cardio" />
                         <TextField fx:id="duration" layoutX="154.0" layoutY="231.0" promptText="enter duration" />
                         <Button layoutX="22.0" layoutY="397.0" mnemonicParsing="false" onAction="#savePerson" prefHeight="49.0" prefWidth="167.0" text="ADD PERSON" />
-                        <Button layoutX="238.0" layoutY="397.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="167.0" text="VIEW DATA" />
                     </children>
                 </AnchorPane>
                 <AnchorPane prefHeight="626.0" prefWidth="362.0">
                     <children>
-                        <TextArea layoutX="23.0" layoutY="91.0" prefHeight="272.0" prefWidth="280.0" />
+                        <TextArea fx:id="view" editable="false" layoutX="23.0" layoutY="91.0" prefHeight="272.0" prefWidth="280.0" />
                         <Text layoutX="112.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="View:" underline="true">
                             <font>
                                 <Font size="32.0" />
@@ -139,29 +140,35 @@
                                 <Font size="27.0" />
                             </font>
                         </Text>
-                        <RadioButton layoutX="14.0" layoutY="82.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="352.0" text="Calories Burned">
+                        <RadioButton fx:id="caloriestoggle" layoutX="14.0" layoutY="82.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="352.0" text="Calories Burned">
                             <font>
                                 <Font size="21.0" />
                             </font>
-                            <toggleGroup>
-                                <ToggleGroup fx:id="ex" />
-                            </toggleGroup>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="ex" />
+                     </toggleGroup>
                         </RadioButton>
-                        <RadioButton layoutX="14.0" layoutY="173.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="352.0" text="Distance Covered" toggleGroup="$ex">
-                            <font>
-                                <Font size="21.0" />
-                            </font>
-                        </RadioButton>
-                        <RadioButton layoutX="14.0" layoutY="279.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="352.0" text="BMI" toggleGroup="$ex">
+                        <RadioButton fx:id="distancetoggle" layoutX="14.0" layoutY="130.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="352.0" text="Distance Covered" toggleGroup="$ex">
                             <font>
                                 <Font size="21.0" />
                             </font>
                         </RadioButton>
-                        <RadioButton layoutX="16.0" layoutY="388.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="474.0" text="Recommended Time to burn 200 Calories" toggleGroup="$ex">
+                        <RadioButton fx:id="bmitoggle" layoutX="14.0" layoutY="178.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="352.0" text="BMI" toggleGroup="$ex">
                             <font>
                                 <Font size="21.0" />
                             </font>
                         </RadioButton>
+                        <RadioButton fx:id="timetoggle" layoutX="14.0" layoutY="225.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="474.0" text="Recommended Time to burn 200 Calories" toggleGroup="$ex">
+                            <font>
+                                <Font size="21.0" />
+                            </font>
+                        </RadioButton>
+                        <Button layoutX="167.0" layoutY="344.0" mnemonicParsing="false" onAction="#displayData" prefHeight="49.0" prefWidth="167.0" text="VIEW DATA" />
+                  <RadioButton fx:id="alltoggle" layoutX="14.0" layoutY="284.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="474.0" text="ALL" toggleGroup="$ex">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </RadioButton>
                     </children>
                 </AnchorPane>
             </children>
