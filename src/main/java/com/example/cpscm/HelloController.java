@@ -60,7 +60,9 @@ public class HelloController {
     private TextField weight;
 
     Alert alert = new Alert(Alert.AlertType.NONE);
+    HashMap<String, String> personsAttributes;
 
+    //Do we need this??
     public HelloController() {
     }
 
@@ -83,7 +85,7 @@ public class HelloController {
             user.Duration(duration_value);
 
 
-            HashMap<String, String> personsAttributes = Organizer.organizeData(user);
+            personsAttributes = Organizer.organizeData(user);
             view.setText("Current User: " + "\n" + "Name: " + personsAttributes.get("Name") + "\n" + "Age in Years: " + personsAttributes.get("Age") + "\n" + "Weight in Kilograms: " + personsAttributes.get("Weight") +
                     "\n" + "Steady State Pace:" + personsAttributes.get("Pace") + "\n" + "Height in Meters" + personsAttributes.get("Height") + "\n" + "Cardio Selection: " + personsAttributes.get("Cardio") + "\n" + "Duration of Exercise: " + personsAttributes.get("Duration"));
 
