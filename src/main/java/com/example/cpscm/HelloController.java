@@ -5,6 +5,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
+import java.util.HashMap;
+
 public class HelloController {
     @FXML
     private TextField age;
@@ -81,9 +83,9 @@ public class HelloController {
             user.Duration(duration_value);
 
 
-            String personsAttributes = String.valueOf(Organizer.organizeData(user));
-            view.setText("Current person: "+personsAttributes);
-
+            HashMap<String, String> personsAttributes = Organizer.organizeData(user);
+            view.setText("Current User: " + "\n" + "Name: " + personsAttributes.get("Name") + "\n" + "Age in Years: " + personsAttributes.get("Age") + "\n" + "Weight in Kilograms: " + personsAttributes.get("Weight") +
+                    "\n" + "Steady State Pace:" + personsAttributes.get("Pace") + "\n" + "Height in Meters" + personsAttributes.get("Height") + "\n" + "Cardio Selection: " + personsAttributes.get("Cardio") + "\n" + "Duration of Exercise: " + personsAttributes.get("Duration"));
 
         } catch (Exception e) {
             alert.setAlertType(Alert.AlertType.ERROR);
@@ -91,29 +93,33 @@ public class HelloController {
             alert.show();
         }
     }
-    public void displayData(){
-        String personsAttributes = String.valueOf(Organizer.organizeData(user));
-        if (bmitoggle.isSelected()){
-        String bmivalue = String.valueOf(Exercise.BMICalculator(user));
-        view.setText(personsAttributes+"\n"+"BMI: "+bmivalue);}
-        else if (caloriestoggle.isSelected()){
-            String caloriesvalue =  String.valueOf(Exercise.caloriesBurned(user));
-            view.setText(personsAttributes+"\n"+"Calories burned: "+caloriesvalue);
-        }
-        else if (timetoggle.isSelected()){
-            String timevalue =  String.valueOf(Exercise.twohundredcalories(user));
-            view.setText(personsAttributes+"\n"+"Time to burn 200 calories: "+timevalue+"minutes");
-        }
-        else if (distancetoggle.isSelected()){
-            String distancevalue =  String.valueOf(Exercise.distance_Covered(user));
-            view.setText(personsAttributes+"\n"+"Distance covered: "+distancevalue+"km");
-        }
-        else if (alltoggle.isSelected()){
-            String caloriesvalue =  String.valueOf(Exercise.caloriesBurned(user));
-            String timevalue =  String.valueOf(Exercise.twohundredcalories(user));
-            String distancevalue =  String.valueOf(Exercise.distance_Covered(user));
-            String bmivalue = String.valueOf(Exercise.BMICalculator(user));
-            view.setText(personsAttributes+"\n"+"Calories burned: "+caloriesvalue+"\n"+"Distance to burn 200 calories: "+timevalue+"minutes"+"\n"+"Distance covered: "+distancevalue+"km"+"\n"+"BMI: "+bmivalue);
+
+    public void displayData() {
+        try {
+            String personsAttributes = String.valueOf(Organizer.organizeData(user));
+            if (bmitoggle.isSelected()) {
+                String bmivalue = String.valueOf(Exercise.BMICalculator(user));
+                view.setText(personsAttributes + "\n" + "BMI: " + bmivalue);
+            } else if (caloriestoggle.isSelected()) {
+                String caloriesvalue = String.valueOf(Exercise.caloriesBurned(user));
+                view.setText(personsAttributes + "\n" + "Calories burned: " + caloriesvalue);
+            } else if (timetoggle.isSelected()) {
+                String timevalue = String.valueOf(Exercise.twohundredcalories(user));
+                view.setText(personsAttributes + "\n" + "Time to burn 200 calories: " + timevalue + "minutes");
+            } else if (distancetoggle.isSelected()) {
+                String distancevalue = String.valueOf(Exercise.distance_Covered(user));
+                view.setText(personsAttributes + "\n" + "Distance covered: " + distancevalue + "km");
+            } else if (alltoggle.isSelected()) {
+                String caloriesvalue = String.valueOf(Exercise.caloriesBurned(user));
+                String timevalue = String.valueOf(Exercise.twohundredcalories(user));
+                String distancevalue = String.valueOf(Exercise.distance_Covered(user));
+                String bmivalue = String.valueOf(Exercise.BMICalculator(user));
+                view.setText(personsAttributes + "\n" + "Calories burned: " + caloriesvalue + "\n" + "Distance to burn 200 calories: " + timevalue + "minutes" + "\n" + "Distance covered: " + distancevalue + "km" + "\n" + "BMI: " + bmivalue);
+            }
+        } catch (Exception e) {
+            alert.setAlertType(Alert.AlertType.ERROR);
+            alert.setContentText("You have entered invalid information!");
+            alert.show();
         }
     }
 }

@@ -113,14 +113,14 @@
                                 <Font size="25.0" />
                             </font>
                         </Text>
-                        <TextField fx:id="name" layoutX="154.0" layoutY="57.0" promptText="enter name" />
-                        <TextField fx:id="age" layoutX="154.0" layoutY="86.0" promptText="enter age" />
-                        <TextField fx:id="weight" layoutX="154.0" layoutY="115.0" promptText="enter weight" />
-                        <TextField fx:id="pace" layoutX="154.0" layoutY="144.0" promptText="enter pace" />
-                        <TextField fx:id="height" layoutX="154.0" layoutY="173.0" promptText="enter height" />
-                        <TextField fx:id="cardio" layoutX="154.0" layoutY="202.0" promptText="enter cardio" />
-                        <TextField fx:id="duration" layoutX="154.0" layoutY="231.0" promptText="enter duration" />
-                        <Button layoutX="22.0" layoutY="397.0" mnemonicParsing="false" onAction="#savePerson" prefHeight="49.0" prefWidth="167.0" text="ADD PERSON" />
+                        <TextField fx:id="name" layoutX="154.0" layoutY="57.0" prefHeight="25.0" prefWidth="262.0" promptText="enter name" />
+                        <TextField fx:id="age" layoutX="154.0" layoutY="86.0" prefHeight="25.0" prefWidth="262.0" promptText="enter age in years" />
+                        <TextField fx:id="weight" layoutX="154.0" layoutY="115.0" prefHeight="25.0" prefWidth="262.0" promptText="enter weight in kilograms" />
+                        <TextField fx:id="pace" layoutX="154.0" layoutY="144.0" prefHeight="25.0" prefWidth="262.0" promptText="enter pace in kilometers" />
+                        <TextField fx:id="height" layoutX="154.0" layoutY="173.0" prefHeight="25.0" prefWidth="262.0" promptText="enter height in meters" />
+                        <TextField fx:id="cardio" layoutX="154.0" layoutY="202.0" prefHeight="25.0" prefWidth="262.0" promptText="enter 1 for Running, enter 2 for Walking" />
+                        <TextField fx:id="duration" layoutX="154.0" layoutY="231.0" prefHeight="25.0" prefWidth="262.0" promptText="enter duration of exercise in minutes" />
+                        <Button layoutX="130.0" layoutY="321.0" mnemonicParsing="false" onAction="#savePerson" prefHeight="49.0" prefWidth="167.0" text="ADD PERSON" />
                     </children>
                 </AnchorPane>
                 <AnchorPane prefHeight="626.0" prefWidth="362.0">

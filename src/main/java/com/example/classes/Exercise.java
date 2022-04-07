@@ -1,7 +1,7 @@
 package com.example.classes;
 
 import java.util.Scanner;
-//Ravales commit
+
 public class Exercise extends User {
     Scanner scanner = new Scanner(System.in);
 
