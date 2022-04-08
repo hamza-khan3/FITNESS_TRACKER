@@ -52,9 +52,10 @@
             <menus>
                 <Menu mnemonicParsing="false" text="File">
                     <items>
+                  <MenuItem mnemonicParsing="false" onAction="#saveUserInfo" text="Save user info" />
                   <MenuItem mnemonicParsing="false" onAction="#loadPerson" text="Load a person..." />
-                  <MenuItem mnemonicParsing="false" onAction="#loadSavedUsers" text="View saved users" />
-                  <MenuItem mnemonicParsing="false" onAction="#saveAction" text="Save user info..." />
+                  <MenuItem mnemonicParsing="false" onAction="#loadSavedUsers" text="View previous users" />
+                  <MenuItem mnemonicParsing="false" onAction="#saveAction" text="Save exercise info" />
                         <MenuItem mnemonicParsing="false" onAction="#closeAction" text="Close" />
                     </items>
                 </Menu>
@@ -127,7 +128,6 @@
                                 <Font size="32.0" />
                             </font>
                         </Text>
-                  <Button layoutX="83.0" layoutY="407.0" mnemonicParsing="false" onAction="#editPerson" prefHeight="49.0" prefWidth="167.0" text="EDIT DATA" />
                     </children>
                 </AnchorPane>
                 <AnchorPane prefHeight="626.0" prefWidth="560.0">

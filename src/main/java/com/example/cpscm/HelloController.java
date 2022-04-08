@@ -11,6 +11,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -19,7 +21,11 @@ import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Optional;
 import java.util.ResourceBundle;
+
+import static javafx.application.Platform.exit;
+import static javafx.scene.paint.Color.*;
 
 public class HelloController {
 
@@ -62,6 +68,14 @@ public class HelloController {
     @FXML
     private TextArea pastusers;
 
+    @FXML
+    FileChooser fileChooser = new FileChooser();
+
+    @FXML
+    private TextArea view;
+
+    @FXML
+    private TextField weight;
     private static String name_value;
     private static int age_value;
     private static double weight_value;
@@ -69,20 +83,14 @@ public class HelloController {
     private static double height_value;
     private static int cardio_value;
     private static double duration_value;
+
+
     public static User user = new User(name_value, age_value, weight_value, pace_value, height_value, cardio_value, duration_value);
 
-    @FXML
-    private TextArea view;
-
-    @FXML
-    private TextField weight;
 
     Alert alert = new Alert(Alert.AlertType.NONE);
     HashMap<String, String> personsAttributes;
 
-    //Do we need this??
-    public HelloController() {
-    }
 
     @FXML
     void savePerson(ActionEvent event) {
@@ -101,8 +109,6 @@ public class HelloController {
             user.Height(height_value);
             user.Cardio(cardio_value);
             user.Duration(duration_value);
-
-
             personsAttributes = Organizer.organizeData(user);
             view.setText("Current User: " + "\n" + "Name: " + personsAttributes.get("Name") + "\n" + "Age in Years: " + personsAttributes.get("Age") + "\n" + "Weight in Kilograms: " + personsAttributes.get("Weight") +
                     "\n" + "Steady State Pace: " + personsAttributes.get("Pace") + "\n" + "Height in Meters: " + personsAttributes.get("Height") + "\n" + "Cardio Selection: " + personsAttributes.get("Cardio") + "\n" + "Duration of Exercise in minutes: " + personsAttributes.get("Duration"));
@@ -116,7 +122,6 @@ public class HelloController {
 
     public void displayData() {
         try {
-            String personsAttributes = String.valueOf(Organizer.organizeData(user));
             if (bmitoggle.isSelected()) {
                 String bmivalue = String.valueOf(Exercise.BMICalculator(user));
                 view.setText("User Name: " + this.personsAttributes.get("Name") + "\n" + "BMI: " + bmivalue);
@@ -183,11 +188,6 @@ public class HelloController {
             alert.show();
         }
     }
-
-    @FXML
-    void editPerson(ActionEvent event) {
-    }
-
     @FXML
     void loadSavedUsers(ActionEvent event) {
         try {
@@ -223,37 +223,71 @@ public class HelloController {
         }
     }
 
-    @FXML
-    void saveEdit(ActionEvent event) {
-    }
 
-    @FXML
-    void saveAction(ActionEvent event) {
-        try {
-            FileChooser file_chooser = new FileChooser();
-            file_chooser.setTitle("Save file");
-            file_chooser.setInitialDirectory(new File("."));
-            file_chooser.setInitialFileName("output.txt");
-            File file = file_chooser.showSaveDialog(new Stage());
-            if (file != null) {
-                //Need to fix sorting
-                SavingData.saveData(file);
-            }else {
-                throw new Exception();
+        @FXML
+        void saveAction(ActionEvent event) {
+            try {
+                FileChooser file_chooser = new FileChooser();
+                file_chooser.setTitle("Save file");
+                file_chooser.setInitialDirectory(new File("."));
+                file_chooser.setInitialFileName("output.txt");
+                File file = file_chooser.showSaveDialog(new Stage());
+                if (file != null) {
+                    //Need to fix sorting
+                    SavingData.saveData(file);
+                }else {
+                    throw new Exception();
+                }
+
+                Sorting comparing = new Sorting(user.getName(), Exercise.caloriesBurned(user), Exercise.BMICalculator(user), Exercise.distance_Covered(user));
+                comparing.BR(file);
+            } catch (Exception e) {
+                alert.setAlertType(Alert.AlertType.ERROR);
+                alert.setContentText("An error occurred.");
+                alert.show();
             }
 
-            Sorting comparing = new Sorting(user.getName(), Exercise.caloriesBurned(user), Exercise.BMICalculator(user), Exercise.distance_Covered(user));
-            comparing.BR(file);
-        } catch (Exception e) {
-            alert.setAlertType(Alert.AlertType.ERROR);
-            alert.setContentText("An error occurred.");
-            alert.show();
+        }
+
+
+
+
+
+        @FXML
+    void closeAction(ActionEvent event) {
+
+        Alert confirmation = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmation.setTitle("Confirmation");
+        confirmation.setContentText("Are you sure you want to exit this program?");
+        ((Button) confirmation.getDialogPane().lookupButton(ButtonType.OK)).setText("Yes I'm sure!");
+        ((Button) confirmation.getDialogPane().lookupButton(ButtonType.CANCEL)).setText("No take me back!");
+        confirmation.setHeaderText("Confirm Exit");
+        Optional<ButtonType> choice = confirmation.showAndWait();
+        if (choice.get() == ButtonType.OK) {
+            System.exit(0);;
+
         }
 
     }
+    public void saveUserInfo() {
+        try {
+            File file = fileChooser.showSaveDialog(new Stage());
+            if (file != null) {//if statement to check if null as user may close file explorer window
+                PrintWriter printWriter = new PrintWriter(file);
+                if (user == null) {
+                    alert.setAlertType(Alert.AlertType.ERROR);
+                    alert.setContentText("Please add a person before trying to save!");
+                    alert.show();
+                } else if (user != null) {
 
-    @FXML
-    void closeAction(ActionEvent event) {
-        System.exit(0);
+                    printWriter.write(user.getName()+","+user.getAge()+","+user.getWeight()+","+user.getPace()+","+user.getHeight()+","+user.getCardio()+","+user.getDuration());
+                    printWriter.close();
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setHeaderText("Success!");
+                    alert.setContentText("File saved successfully!");
+                }
+            }
+        } catch (FileNotFoundException e) {
+        }
     }
 }
