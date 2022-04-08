@@ -162,26 +162,40 @@ public class HelloController {
     @FXML
     void loadPerson(ActionEvent event) {
         try {
+            FileChooser.ExtensionFilter fileExtensions =
+                    new FileChooser.ExtensionFilter(
+                            "text file", "*.txt");
+
+
             FileChooser file_chooser = new FileChooser();
+            file_chooser.getExtensionFilters().add(fileExtensions);
             File person_file = file_chooser.showOpenDialog(new Stage());
 
             if (person_file == null) {
                 throw new Exception();
             }
+            if (ReaderClass.loadData(person_file).length !=7){
 
-            String[] data = ReaderClass.loadData(person_file);
-            user.Name(data[0]);
-            user.Age(Integer.valueOf(data[1]));
-            user.Weight(Double.valueOf(data[2]));
-            user.Pace(Double.valueOf(data[3]));
-            user.Height(Double.valueOf(data[4]));
-            user.Cardio(Integer.valueOf(data[5]));
-            user.Duration(Double.valueOf(data[6]));
+                alert.setAlertType(Alert.AlertType.ERROR);
+                alert.setContentText("You have entered an invalid/incorrectly formatted file!");
+                alert.show();
 
-            personsAttributes = Organizer.organizeData(user);
-            view.setText("Current User: " + "\n" + "Name: " + personsAttributes.get("Name") + "\n" + "Age in Years: " + personsAttributes.get("Age") + "\n" + "Weight in Kilograms: " + personsAttributes.get("Weight") +
-                    "\n" + "Steady State Pace: " + personsAttributes.get("Pace") + "\n" + "Height in Meters: " + personsAttributes.get("Height") + "\n" + "Cardio Selection: " + personsAttributes.get("Cardio") + "\n" + "Duration of Exercise in minutes: " + personsAttributes.get("Duration"));
+            }
+            else if(ReaderClass.loadData(person_file).length == 7) {
 
+                String[] data = ReaderClass.loadData(person_file);
+                user.Name(data[0]);
+                user.Age(Integer.valueOf(data[1]));
+                user.Weight(Double.valueOf(data[2]));
+                user.Pace(Double.valueOf(data[3]));
+                user.Height(Double.valueOf(data[4]));
+                user.Cardio(Integer.valueOf(data[5]));
+                user.Duration(Double.valueOf(data[6]));
+
+                personsAttributes = Organizer.organizeData(user);
+                view.setText("Current User: " + "\n" + "Name: " + personsAttributes.get("Name") + "\n" + "Age in Years: " + personsAttributes.get("Age") + "\n" + "Weight in Kilograms: " + personsAttributes.get("Weight") +
+                        "\n" + "Steady State Pace: " + personsAttributes.get("Pace") + "\n" + "Height in Meters: " + personsAttributes.get("Height") + "\n" + "Cardio Selection: " + personsAttributes.get("Cardio") + "\n" + "Duration of Exercise in minutes: " + personsAttributes.get("Duration"));
+            }
         } catch (Exception e) {
             alert.setAlertType(Alert.AlertType.ERROR);
             alert.setContentText("You have entered an invalid file!");
