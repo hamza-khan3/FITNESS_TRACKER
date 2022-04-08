@@ -345,8 +345,8 @@ public class HelloController {
     public void saveUserInfo() {
         try {
             //Allows user to name and select a file to save to.
+            fileChooser.setInitialFileName(user.getName() + ".txt");
             File file = fileChooser.showSaveDialog(new Stage());
-            fileChooser.setInitialFileName(user.getName() + "txt");
             if (file != null) {//if statement to check if null as user may close file explorer window
                 PrintWriter printWriter = new PrintWriter(file);
                 //Checking if the user exists or not
