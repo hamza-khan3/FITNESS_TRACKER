@@ -7,6 +7,9 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 
+/**
+ * This class saves the user data to a file.
+ */
 
 public class SavingData {
     /**

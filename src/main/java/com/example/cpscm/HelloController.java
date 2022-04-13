@@ -1,5 +1,5 @@
 package com.example.cpscm;
-//aa
+
 import com.example.classes.*;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
@@ -27,12 +27,14 @@ import java.util.ResourceBundle;
 import static javafx.application.Platform.exit;
 import static javafx.scene.paint.Color.*;
 
+/**
+ * This class is the controller class where all the GUI's functions and action commands will be processed.
+ * Names: Ravale Khan and Hamza Khan
+ * Tutorial: Ravale Khan: T06 and Hamza Khan: T04
+ * Date: Friday, April 8th, 2022
+ */
+
 public class HelloController {
-    /**
-     * Names: Ravale Khan and Hamza Khan
-     * Tutorial: Ravale Khan: T06 and Hamza Khan: T04
-     * Date: Friday, April 8th, 2022
-     */
 
     @FXML
     private TextField age;

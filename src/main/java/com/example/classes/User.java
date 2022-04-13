@@ -3,6 +3,11 @@ package com.example.classes;
 import java.util.HashMap;
 import java.util.Scanner;
 
+/**
+ * This class represents the user, and the characteristics of the user will be updated/taken
+ * from this class.
+ */
+
 public class User extends Person {
     private String name;
     private int age;

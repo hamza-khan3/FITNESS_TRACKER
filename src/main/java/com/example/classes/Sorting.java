@@ -5,6 +5,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
+/**
+ * This class sorts the information of the past users based on the greatest amount of calories burned to
+ * the lease amount of calories burned.
+ */
+
 public class Sorting implements Comparable<Sorting> {
     String name;
     double calories;

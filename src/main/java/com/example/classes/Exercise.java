@@ -2,6 +2,11 @@ package com.example.classes;
 
 import java.util.Scanner;
 
+/**
+ * This class represents the users exercise/workout. The class will contain the calculation
+ * of things related to the user's workout, like distance covered and calories burned.
+ */
+
 public class Exercise extends User {
     Scanner scanner = new Scanner(System.in);
 

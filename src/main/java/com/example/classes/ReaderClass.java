@@ -5,6 +5,10 @@ import java.io.FileNotFoundException;
 import java.util.Arrays;
 import java.util.Scanner;
 
+/**
+ * This class reads from a file and stores the line's information in a String array.
+ */
+
 public class ReaderClass {
     /**
      * A string array is initialized with length 7, the length will be 7 as our csv input file has

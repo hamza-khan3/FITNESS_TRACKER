@@ -4,6 +4,10 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * This class will Organize the data in a hashmap
+ */
+
 public class Organizer extends User{
     public Organizer(String name, int age, double weight, double pace, double height, int cardio, double duration){
         super(name, age, weight, pace, height, cardio, duration);
