@@ -117,7 +117,7 @@
                         <TextField fx:id="height" layoutX="154.0" layoutY="173.0" prefHeight="25.0" prefWidth="262.0" promptText="enter height in meters" />
                         <TextField fx:id="cardio" layoutX="154.0" layoutY="202.0" prefHeight="25.0" prefWidth="262.0" promptText="enter 1 for Running, enter 2 for Walking" />
                         <TextField fx:id="duration" layoutX="154.0" layoutY="231.0" prefHeight="25.0" prefWidth="262.0" promptText="enter duration of exercise in minutes" />
-                        <Button layoutX="130.0" layoutY="321.0" mnemonicParsing="false" onAction="#savePerson" prefHeight="49.0" prefWidth="167.0" text="ADD/EDIT PERSON" />
+                        <Button layoutX="130.0" layoutY="321.0" mnemonicParsing="false" onAction="#savePerson" prefHeight="49.0" prefWidth="167.0" text="ADD PERSON" />
                   <Button layoutX="130.0" layoutY="386.0" mnemonicParsing="false" onAction="#viewPerson" prefHeight="49.0" prefWidth="167.0" text="VIEW CURRENT PERSON" />
                     </children>
                 </AnchorPane>
