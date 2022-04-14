@@ -97,7 +97,20 @@ public class HelloController {
     Alert alert = new Alert(Alert.AlertType.NONE);
     HashMap<String, String> personsAttributes;
 
+    /**
+     * This function checks if the user has entered the correct values
+     * @param age
+     * @param weight
+     * @param pace
+     * @param height
+     * @param cardio
+     * @param duration
+     * @return
+     */
     public static boolean correctValues(int age, double weight, double pace, double height, int cardio, double duration){
+        //Checking if the values entered are illogical(less than 0.)
+        //Your age, weight, pace, height, cardio, and duration of cardio have to all be certain logical
+        //values.
         if (age < 0){
             return false;
         }
@@ -123,6 +136,18 @@ public class HelloController {
         }
 
         return true;
+    }
+
+    /**
+     * Checking if the user has been entered or if the values are still null.
+     * @return
+     */
+    public static boolean userExists(){
+        if (user.getAge()  == 0 || user.getWeight() == 0 || user.getPace() == 0 || user.getHeight() == 0 || user.getDuration() == 0){
+            return false;
+        }else {
+            return true;
+        }
     }
 
 
@@ -207,7 +232,7 @@ public class HelloController {
                 String timevalue = String.valueOf(Exercise.twohundredcalories(user));
                 String distancevalue = String.valueOf(Exercise.distance_Covered(user));
                 String bmivalue = String.valueOf(Exercise.BMICalculator(user));
-                view.setText("User Name: " + this.personsAttributes.get("Name") + "\n" + "Calories burned: " + caloriesvalue + "\n" + "Distance to burn 200 calories: " + timevalue + " minutes" + "\n" + "Distance covered: " + distancevalue + "km" + "\n" + "BMI: " + bmivalue);
+                view.setText("User Name: " + this.personsAttributes.get("Name") + "\n" + "Calories burned: " + caloriesvalue + "\n" + "Time to burn 200 calories: " + timevalue + " minutes" + "\n" + "Distance covered: " + distancevalue + "km" + "\n" + "BMI: " + bmivalue);
             }
         } catch (RuntimeException g){
             alert.setAlertType(Alert.AlertType.ERROR);
@@ -355,6 +380,11 @@ public class HelloController {
     @FXML
     void saveAction(ActionEvent event) {
         try {
+
+            if (userExists() == false){
+                throw new RuntimeException();
+            }
+
             FileChooser file_chooser = new FileChooser();
             file_chooser.setTitle("Save file");
             file_chooser.setInitialDirectory(new File("."));
@@ -371,6 +401,10 @@ public class HelloController {
             //Sorting the new file with the new user entry.
             Sorting comparing = new Sorting(user.getName(), Exercise.caloriesBurned(user), Exercise.BMICalculator(user), Exercise.distance_Covered(user));
             comparing.BR(file);
+        } catch (RuntimeException f){
+            alert.setAlertType(Alert.AlertType.ERROR);
+            alert.setContentText("Please add a person before saving!");
+            alert.show();
         } catch (Exception e) {
             alert.setAlertType(Alert.AlertType.ERROR);
             alert.setContentText("An error occurred.");
@@ -403,6 +437,11 @@ public class HelloController {
      */
     public void saveUserInfo() {
         try {
+
+            if (userExists() == false){
+                throw new FileNotFoundException();
+            }
+
             //Allows user to name and select a file to save to.
             fileChooser.setInitialFileName(user.getName() + ".txt");
             File file = fileChooser.showSaveDialog(new Stage());

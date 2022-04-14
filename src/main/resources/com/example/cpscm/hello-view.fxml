@@ -55,7 +55,7 @@
                   <MenuItem mnemonicParsing="false" onAction="#saveUserInfo" text="Save user info" />
                   <MenuItem mnemonicParsing="false" onAction="#loadPerson" text="Load a person..." />
                   <MenuItem mnemonicParsing="false" onAction="#loadSavedUsers" text="View previous users" />
-                  <MenuItem mnemonicParsing="false" onAction="#saveAction" text="Save exercise info" />
+                  <MenuItem mnemonicParsing="false" onAction="#saveAction" text="Save exercise information with Past Users" />
                         <MenuItem mnemonicParsing="false" onAction="#closeAction" text="Close" />
                     </items>
                 </Menu>
@@ -128,7 +128,7 @@
                                 <Font size="32.0" />
                             </font>
                         </Text>
-                  <Button layoutX="29.0" layoutY="409.0" mnemonicParsing="false" onAction="#viewPerson" prefHeight="25.0" prefWidth="268.0" text="VIEW CURRENT PERSON INFORMATION" />
+                  <Button layoutX="54.0" layoutY="409.0" mnemonicParsing="false" onAction="#viewPerson" prefHeight="25.0" prefWidth="243.0" text="VIEW CURRENT PERSON INFORMATION" />
                     </children>
                 </AnchorPane>
                 <AnchorPane prefHeight="626.0" prefWidth="560.0">
