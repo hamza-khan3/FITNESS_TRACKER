@@ -3,7 +3,11 @@ package com.example.classes;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
+
+/**
+ * This class will be used to sort the output file on which
+ * the savingdata class in enacted on.
+ */
 
 public class Sorting implements Comparable<Sorting> {
     String name;

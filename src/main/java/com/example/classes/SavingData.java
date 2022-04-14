@@ -7,6 +7,10 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 
+/**
+ * This class will make use of the exercise functions and save that data to
+ * a file.
+ */
 
 public class SavingData {
     /**

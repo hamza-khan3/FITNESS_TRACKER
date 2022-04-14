@@ -1,9 +1,12 @@
 package com.example.classes;
 
-import java.io.*;
-import java.util.ArrayList;
-import java.util.HashMap;
 
+import java.util.HashMap;
+/**
+ * The organizer class extends the User class by inheriting the attributes of
+ * the user/person of the program. The class is composed of a function that stores the
+ * users data in an organized hashmap.
+ */
 public class Organizer extends User{
     public Organizer(String name, int age, double weight, double pace, double height, int cardio, double duration){
         super(name, age, weight, pace, height, cardio, duration);

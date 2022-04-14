@@ -6,26 +6,16 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-
 import java.io.*;
-import java.net.URL;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Optional;
-import java.util.ResourceBundle;
 
-import static javafx.application.Platform.exit;
-import static javafx.scene.paint.Color.*;
+/**
+ * Controller class for GUI
+ */
 
 public class HelloController {
     /**

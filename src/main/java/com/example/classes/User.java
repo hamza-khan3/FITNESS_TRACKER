@@ -1,7 +1,10 @@
 package com.example.classes;
 
-import java.util.HashMap;
-import java.util.Scanner;
+/**
+ * This class is essentially the core of the program and it extends the abstract
+ * person class which contains getters and setters and helps with assigning text fields(GUI) to our
+ * variables.
+ */
 
 public class User extends Person {
     private String name;

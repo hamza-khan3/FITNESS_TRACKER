@@ -1,9 +1,13 @@
 package com.example.classes;
 
-import java.util.Scanner;
+
+/**
+ * The exercise class extends the User class by inheriting the attributes of
+ * the user/person of the program. The class is composed of functions that are mainly
+ * used for calculations. These calculations aid us in displaying the "output special".
+ */
 
 public class Exercise extends User {
-    Scanner scanner = new Scanner(System.in);
 
     public Exercise(String name, int age, double weight, double pace, double height, int cardio, double duration) {
         super(name, age, weight, pace, height, cardio, duration);

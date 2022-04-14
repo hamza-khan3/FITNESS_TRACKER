@@ -1,6 +1,9 @@
 package com.example.classes;
 
-import java.util.HashMap;
+/**
+ * The Person class is an abstract class that will be inherited by the User class
+ * all of the functions and variables will be initialized here.
+ */
 
 public abstract class Person {
 
