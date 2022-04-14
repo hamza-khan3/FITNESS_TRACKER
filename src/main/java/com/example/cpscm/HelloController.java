@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 import java.io.*;
 import java.util.HashMap;
 import java.util.Optional;
+import java.util.jar.Attributes;
 
 /**
  * Controller class for GUI
@@ -96,6 +97,34 @@ public class HelloController {
     Alert alert = new Alert(Alert.AlertType.NONE);
     HashMap<String, String> personsAttributes;
 
+    public static boolean correctValues(int age, double weight, double pace, double height, int cardio, double duration){
+        if (age < 0){
+            return false;
+        }
+
+        if (weight < 0.0){
+            return false;
+        }
+
+        if (pace < 0.0){
+            return false;
+        }
+
+        if (height < 0.0){
+            return false;
+        }
+
+        if (cardio != 1 && cardio != 2){
+            return false;
+        }
+
+        if (duration < 0.0){
+            return false;
+        }
+
+        return true;
+    }
+
 
     /**
      * Saving the User information and displaying it
@@ -116,6 +145,11 @@ public class HelloController {
             double height_value = Double.parseDouble(height.getText());
             int cardio_value = Integer.parseInt(cardio.getText());
             double duration_value = Double.parseDouble(duration.getText());
+
+            //checking if the user entered correct values
+            if (correctValues(age_value, weight_value, pace_value, height_value, cardio_value, duration_value) == false){
+                throw new Exception();
+            }
 
             //Using setters to set the user's information.
             user.Name(name_value);
@@ -145,6 +179,11 @@ public class HelloController {
     public void displayData() {
         //Try/catch used to catch any errors.
         try {
+            //Checking if a user has been entered into the program first.
+            //If the users information is not default, that means a user has been entered.
+            if (user.getAge() == 0 || user.getName().equals("") || user.getWeight() == 0.0 || user.getPace() == 0.0 || user.getHeight() == 0.0 || user.getDuration() == 0.0){
+                throw new RuntimeException();
+            }
 
             //BMI displayed for the user.
             if (bmitoggle.isSelected()) {
@@ -170,6 +209,10 @@ public class HelloController {
                 String bmivalue = String.valueOf(Exercise.BMICalculator(user));
                 view.setText("User Name: " + this.personsAttributes.get("Name") + "\n" + "Calories burned: " + caloriesvalue + "\n" + "Distance to burn 200 calories: " + timevalue + " minutes" + "\n" + "Distance covered: " + distancevalue + "km" + "\n" + "BMI: " + bmivalue);
             }
+        } catch (RuntimeException g){
+            alert.setAlertType(Alert.AlertType.ERROR);
+            alert.setContentText("You have not entered in a User yet!");
+            alert.show();
         } catch (Exception e) {
             alert.setAlertType(Alert.AlertType.ERROR);
             alert.setContentText("You have entered invalid information!");
@@ -194,7 +237,7 @@ public class HelloController {
     }
 
     /**
-     * This function will load a pre existing
+     * This function will load a pre-existing
      * person into the world, therefore bypassing the section of
      * the GUI where the user has to enter the information manually.
      * @param event
@@ -203,9 +246,9 @@ public class HelloController {
     @FXML
     void loadPerson(ActionEvent event) {
         try {
+
             //Creating a FileChooser which will allow the user to select a file from his computer.
-            FileChooser.ExtensionFilter fileExtensions =
-                    new FileChooser.ExtensionFilter("text file", "*.txt");
+            FileChooser.ExtensionFilter fileExtensions = new FileChooser.ExtensionFilter("text file", "*.txt");
 
 
             FileChooser file_chooser = new FileChooser();
@@ -219,8 +262,15 @@ public class HelloController {
             }
             else if(ReaderClass.loadData(person_file).length == 7) {
 
+
                 //Storing the users information that we retrieved from the file loaded.
                 String[] data = ReaderClass.loadData(person_file);
+
+                //checking if the file has the correct values
+                if (correctValues(Integer.valueOf(data[1]), Double.valueOf(data[2]), Double.valueOf(data[3]), Double.valueOf(data[4]), Integer.valueOf(data[5]), Double.valueOf(data[6])) == false){
+                    throw new Exception();
+                }
+
                 user.Name(data[0]);
                 user.Age(Integer.valueOf(data[1]));
                 user.Weight(Double.valueOf(data[2]));
