@@ -247,6 +247,18 @@ public class HelloController {
             alert.show();
         }
     }
+    @FXML
+    void viewPerson(){
+        try {
+            view.setText("Current User: " + "\n" + "Name: " + personsAttributes.get("Name") + "\n" + "Age in Years: " + personsAttributes.get("Age") + "\n" + "Weight in Kilograms: " + personsAttributes.get("Weight") +
+                    "\n" + "Steady State Pace: " + personsAttributes.get("Pace") + "\n" + "Height in Meters: " + personsAttributes.get("Height") + "\n" + "Cardio Selection: " + personsAttributes.get("Cardio") + "\n" + "Duration of Exercise in minutes: " + personsAttributes.get("Duration"));
+        }
+        catch(Exception e){
+            alert.setAlertType(Alert.AlertType.ERROR);
+            alert.setContentText("Please add a person before trying to view!");
+            alert.show();
+        }
+    }
 
     /**
      * This function loads all the past user's information.
