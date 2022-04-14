@@ -1,9 +1,18 @@
+/**
+ * Names: Ravale Khan and Hamza Khan
+ * Tutorial: Ravale Khan: T06 and Hamza Khan: T04
+ * Date: Friday, April 8th, 2022
+ */
 package com.example.classes;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
+
+/**
+ * This class will be used to sort the output file on which
+ * the savingdata class in enacted on.
+ */
 
 /**
  * This class sorts the information of the past users based on the greatest amount of calories burned to

@@ -1,7 +1,15 @@
+/**
+ * Names: Ravale Khan and Hamza Khan
+ * Tutorial: Ravale Khan: T06 and Hamza Khan: T04
+ * Date: Friday, April 8th, 2022
+ */
 package com.example.classes;
 
-import java.util.HashMap;
-import java.util.Scanner;
+/**
+ * This class is essentially the core of the program and it extends the abstract
+ * person class which contains getters and setters and helps with assigning text fields(GUI) to our
+ * variables.
+ */
 
 /**
  * This class represents the user, and the characteristics of the user will be updated/taken

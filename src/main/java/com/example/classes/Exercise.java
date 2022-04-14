@@ -1,6 +1,16 @@
+/**
+ * Names: Ravale Khan and Hamza Khan
+ * Tutorial: Ravale Khan: T06 and Hamza Khan: T04
+ * Date: Friday, April 8th, 2022
+ */
 package com.example.classes;
 
-import java.util.Scanner;
+
+/**
+ * The exercise class extends the User class by inheriting the attributes of
+ * the user/person of the program. The class is composed of functions that are mainly
+ * used for calculations. These calculations aid us in displaying the "output special".
+ */
 
 /**
  * This class represents the users exercise/workout. The class will contain the calculation
@@ -8,7 +18,6 @@ import java.util.Scanner;
  */
 
 public class Exercise extends User {
-    Scanner scanner = new Scanner(System.in);
 
     public Exercise(String name, int age, double weight, double pace, double height, int cardio, double duration) {
         super(name, age, weight, pace, height, cardio, duration);

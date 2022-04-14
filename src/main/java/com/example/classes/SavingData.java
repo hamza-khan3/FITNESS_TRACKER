@@ -1,3 +1,8 @@
+/**
+ * Names: Ravale Khan and Hamza Khan
+ * Tutorial: Ravale Khan: T06 and Hamza Khan: T04
+ * Date: Friday, April 8th, 2022
+ */
 package com.example.classes;
 
 import com.example.cpscm.HelloController;
@@ -8,7 +13,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 /**
- * This class saves the user data to a file.
+ * This class will make use of the exercise functions and save that data to
+ * a file.
  */
 
 public class SavingData {

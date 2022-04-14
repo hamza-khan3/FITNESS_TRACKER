@@ -1,14 +1,19 @@
+/**
+ * Names: Ravale Khan and Hamza Khan
+ * Tutorial: Ravale Khan: T06 and Hamza Khan: T04
+ * Date: Friday, April 8th, 2022
+ */
 package com.example.classes;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Arrays;
+
 import java.util.Scanner;
 
 /**
- * This class reads from a file and stores the line's information in a String array.
+ * This is a simple Reader class which will scan an input file and extract
+ * the information/attributes of a person into an array.
  */
-
 public class ReaderClass {
     /**
      * A string array is initialized with length 7, the length will be 7 as our csv input file has

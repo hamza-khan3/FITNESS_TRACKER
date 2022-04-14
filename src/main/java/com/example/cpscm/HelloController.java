@@ -1,3 +1,8 @@
+/**
+ * Names: Ravale Khan and Hamza Khan
+ * Tutorial: Ravale Khan: T06 and Hamza Khan: T04
+ * Date: Friday, April 8th, 2022
+ */
 package com.example.cpscm;
 
 import com.example.classes.*;
@@ -6,26 +11,16 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-
 import java.io.*;
-import java.net.URL;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Optional;
-import java.util.ResourceBundle;
 
-import static javafx.application.Platform.exit;
-import static javafx.scene.paint.Color.*;
+/**
+ * Controller class for GUI
+ */
 
 /**
  * This class is the controller class where all the GUI's functions and action commands will be processed.
@@ -246,6 +241,18 @@ public class HelloController {
         } catch (Exception e) {
             alert.setAlertType(Alert.AlertType.ERROR);
             alert.setContentText("You have entered an invalid file!");
+            alert.show();
+        }
+    }
+    @FXML
+    void viewPerson(){
+        try {
+            view.setText("Current User: " + "\n" + "Name: " + personsAttributes.get("Name") + "\n" + "Age in Years: " + personsAttributes.get("Age") + "\n" + "Weight in Kilograms: " + personsAttributes.get("Weight") +
+                    "\n" + "Steady State Pace: " + personsAttributes.get("Pace") + "\n" + "Height in Meters: " + personsAttributes.get("Height") + "\n" + "Cardio Selection: " + personsAttributes.get("Cardio") + "\n" + "Duration of Exercise in minutes: " + personsAttributes.get("Duration"));
+        }
+        catch(Exception e){
+            alert.setAlertType(Alert.AlertType.ERROR);
+            alert.setContentText("Please add a person before trying to view!");
             alert.show();
         }
     }
