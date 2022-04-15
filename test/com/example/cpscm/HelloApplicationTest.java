@@ -13,6 +13,7 @@ import java.util.Scanner;
 import static org.junit.jupiter.api.Assertions.*;
 
 class HelloApplicationTest {
+
     static String testName;
     static int testAge;
     static double testWeight;
