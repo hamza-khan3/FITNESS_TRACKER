@@ -16,7 +16,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class HelloApplicationTest {
 
-    class Test {
         static String testName;
         static int testAge;
         static double testWeight;
@@ -233,7 +232,5 @@ class HelloApplicationTest {
             String [] unexpectedArray = {"John","100","20","6.0","1.85","15","1"};
             assertNotEquals(Arrays.toString(unexpectedArray),Arrays.toString(ReaderClass.loadData(testFile)));
         }
-
-    }
 
 }
