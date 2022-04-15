@@ -217,15 +217,21 @@ class HelloApplicationTest {
     }
     /**
      * In this test, our loadData function from our Reader class will be tested using
-     * assertNotEquals. We will create a testarray with the correct values BUT
-     * will put them in the wrong order. This array will be unexpected from our loadData function.
+     * assertNotEquals. We will create a testarray and replace an element with the wrong value.
+     * This array will be unexpected from our loadData function.
      * Hence, they will not be equal.
      * @throws FileNotFoundException
      */
     @org.junit.jupiter.api.Test
     void ReaderClass2() throws FileNotFoundException {
         File testFile = new File("Arthur Morgan.txt");
-        String [] unexpectedArray = {"John","100","20","6.0","1.85","15","1"};
+        String [] unexpectedArray = new String[7];
+        Scanner scanner = new Scanner(testFile);
+        while (scanner.hasNextLine()) {
+            String lines = scanner.nextLine();
+            unexpectedArray = lines.split(",");
+        }
+        unexpectedArray[1] = "lol";
         assertNotEquals(Arrays.toString(unexpectedArray),Arrays.toString(ReaderClass.loadData(testFile)));
     }
 
