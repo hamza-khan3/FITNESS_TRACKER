@@ -1,0 +1,6 @@
+Name:Geralt, Calories burned: 1932.0, BMI: 22.33, Distance covered in Kilometers: 30.0
+Name:Geralt, Calories burned: 1932.0, BMI: 22.33, Distance covered in Kilometers: 30.0
+Name:LeBron, Calories burned: 945.0, BMI: 22.5, Distance covered in Kilometers: 9.0
+Name:David, Calories burned: 861.0, BMI: 20.5, Distance covered in Kilometers: 10.0
+Name:Arthur Morgan, Calories burned: 840.0, BMI: 20.0, Distance covered in Kilometers: 8.0
+Name:Ravale , Calories burned: 362.25, BMI: 23.05, Distance covered in Kilometers: 4.5
