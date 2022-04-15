@@ -27,7 +27,7 @@ import java.util.jar.Attributes;
  * This class is the controller class where all the GUI's functions and action commands will be processed.
  * Names: Ravale Khan and Hamza Khan
  * Tutorial: Ravale Khan: T06 and Hamza Khan: T04
- * Date: Friday, April 8th, 2022.
+ * Date: Friday, April 8th, 2022
  */
 
 public class HelloController {
