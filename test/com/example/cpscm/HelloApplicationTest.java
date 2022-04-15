@@ -205,7 +205,7 @@ class HelloApplicationTest {
      */
     @org.junit.jupiter.api.Test
     void ReaderClass1() throws FileNotFoundException {
-        File testFile = new File("data.txt");
+        File testFile = new File("Arthur Morgan.txt");
         String [] expectedArray = new String[7];
         Scanner scanner = new Scanner(testFile);
         while (scanner.hasNextLine()) {
@@ -223,7 +223,7 @@ class HelloApplicationTest {
      */
     @org.junit.jupiter.api.Test
     void ReaderClass2() throws FileNotFoundException {
-        File testFile = new File("data.txt");
+        File testFile = new File("Arthur Morgan.txt");
         String [] unexpectedArray = {"John","100","20","6.0","1.85","15","1"};
         assertNotEquals(Arrays.toString(unexpectedArray),Arrays.toString(ReaderClass.loadData(testFile)));
     }
