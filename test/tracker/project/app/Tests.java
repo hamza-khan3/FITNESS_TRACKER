@@ -1,8 +1,9 @@
-package com.example.cpscm;
+package tracker.project.app;
 
-import com.example.classes.*;
+
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import tracker.project.classes.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -12,7 +13,7 @@ import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class HelloApplicationTest {
+class Tests {
 
     static String testName;
     static int testAge;

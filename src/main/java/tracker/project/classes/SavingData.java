@@ -3,9 +3,9 @@
  * Tutorial: Ravale Khan: T06 and Hamza Khan: T04
  * Date: Friday, April 15th, 2022
  */
-package com.example.classes;
+package tracker.project.classes;
 
-import com.example.cpscm.HelloController;
+import tracker.project.app.MainController;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -26,10 +26,10 @@ public class SavingData {
 
         try {
             FileWriter myWriter = new FileWriter(output, true);
-            Double calories = Exercise.caloriesBurned(HelloController.user);
-            Double BMI = Exercise.BMICalculator(HelloController.user);
-            Double distanceCovered = Exercise.distance_Covered(HelloController.user);
-            myWriter.write("Name:"+HelloController.user.getName()+","+" Calories burned: "+calories+","+" BMI: "+BMI+","+" Distance covered in Kilometers: "+distanceCovered+"\n");
+            Double calories = Exercise.caloriesBurned(MainController.user);
+            Double BMI = Exercise.BMICalculator(MainController.user);
+            Double distanceCovered = Exercise.distance_Covered(MainController.user);
+            myWriter.write("Name:"+MainController.user.getName()+","+" Calories burned: "+calories+","+" BMI: "+BMI+","+" Distance covered in Kilometers: "+distanceCovered+"\n");
             myWriter.flush();
             myWriter.close();
             System.out.println("Data saved successfully!");

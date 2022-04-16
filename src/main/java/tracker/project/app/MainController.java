@@ -3,9 +3,10 @@
  * Tutorial: Ravale Khan: T06 and Hamza Khan: T04
  * Date: Friday, April 8th, 2022
  */
-package com.example.cpscm;
+package tracker.project.app;
 
-import com.example.classes.*;
+
+import tracker.project.classes.*;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -30,7 +31,7 @@ import java.util.jar.Attributes;
  * Date: Friday, April 15th, 2022
  */
 
-public class HelloController {
+public class MainController {
 
     @FXML
     private TextField age;
