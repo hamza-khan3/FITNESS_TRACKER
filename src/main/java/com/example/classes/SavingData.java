@@ -3,7 +3,7 @@
  * Tutorial: Ravale Khan: T06 and Hamza Khan: T04
  * Date: Friday, April 15th, 2022
  */
-package com.example.classes;
+package tracker.project.classes;
 
 import com.example.cpscm.HelloController;
 
